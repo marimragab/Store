@@ -809,6 +809,7 @@ namespace StoreProject
             this.UpdateSupplier_button.Text = "Update";
             this.UpdateSupplier_button.UseVisualStyleBackColor = false;
             this.UpdateSupplier_button.UseWaitCursor = true;
+            this.UpdateSupplier_button.Click += new System.EventHandler(this.UpdateSupplier_button_Click);
             // 
             // groupBox9
             // 
@@ -913,6 +914,7 @@ namespace StoreProject
             this.AddSupplier_Button.Text = "Add";
             this.AddSupplier_Button.UseVisualStyleBackColor = false;
             this.AddSupplier_Button.UseWaitCursor = true;
+            this.AddSupplier_Button.Click += new System.EventHandler(this.AddSupplier_Button_Click);
             // 
             // label20
             // 
@@ -950,6 +952,7 @@ namespace StoreProject
             this.EditSupplier_Toggle.TabIndex = 1;
             this.EditSupplier_Toggle.Text = "Edit Supplier";
             this.EditSupplier_Toggle.UseVisualStyleBackColor = true;
+            this.EditSupplier_Toggle.Click += new System.EventHandler(this.EditSupplier_Toggle_Click);
             // 
             // AddSupplier_Toggle
             // 
@@ -959,6 +962,7 @@ namespace StoreProject
             this.AddSupplier_Toggle.TabIndex = 0;
             this.AddSupplier_Toggle.Text = "AddSupplier";
             this.AddSupplier_Toggle.UseVisualStyleBackColor = true;
+            this.AddSupplier_Toggle.Click += new System.EventHandler(this.AddSupplier_Toggle_Click);
             // 
             // SuppliersList
             // 
@@ -967,6 +971,7 @@ namespace StoreProject
             this.SuppliersList.Name = "SuppliersList";
             this.SuppliersList.Size = new System.Drawing.Size(121, 21);
             this.SuppliersList.TabIndex = 4;
+            this.SuppliersList.SelectedIndexChanged += new System.EventHandler(this.SuppliersList_SelectedIndexChanged);
             // 
             // label23
             // 
@@ -1071,14 +1076,14 @@ namespace StoreProject
             // 
             // textBox28
             // 
-            this.textBox28.Location = new System.Drawing.Point(128, 71);
+            this.textBox28.Location = new System.Drawing.Point(128, 46);
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(100, 20);
             this.textBox28.TabIndex = 32;
             // 
             // textBox29
             // 
-            this.textBox29.Location = new System.Drawing.Point(128, 46);
+            this.textBox29.Location = new System.Drawing.Point(128, 72);
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new System.Drawing.Size(100, 20);
             this.textBox29.TabIndex = 31;
@@ -1168,6 +1173,7 @@ namespace StoreProject
             this.UpdateCustomer_Button.Text = "Update";
             this.UpdateCustomer_Button.UseVisualStyleBackColor = false;
             this.UpdateCustomer_Button.UseWaitCursor = true;
+            this.UpdateCustomer_Button.Click += new System.EventHandler(this.UpdateCustomer_Button_Click);
             // 
             // groupBox12
             // 
@@ -1203,7 +1209,7 @@ namespace StoreProject
             // 
             // textBox34
             // 
-            this.textBox34.Location = new System.Drawing.Point(125, 87);
+            this.textBox34.Location = new System.Drawing.Point(125, 27);
             this.textBox34.Name = "textBox34";
             this.textBox34.Size = new System.Drawing.Size(100, 20);
             this.textBox34.TabIndex = 17;
@@ -1226,21 +1232,21 @@ namespace StoreProject
             // 
             // textBox36
             // 
-            this.textBox36.Location = new System.Drawing.Point(125, 167);
+            this.textBox36.Location = new System.Drawing.Point(125, 83);
             this.textBox36.Name = "textBox36";
             this.textBox36.Size = new System.Drawing.Size(100, 20);
             this.textBox36.TabIndex = 12;
             // 
             // textBox37
             // 
-            this.textBox37.Location = new System.Drawing.Point(125, 141);
+            this.textBox37.Location = new System.Drawing.Point(125, 114);
             this.textBox37.Name = "textBox37";
             this.textBox37.Size = new System.Drawing.Size(100, 20);
             this.textBox37.TabIndex = 11;
             // 
             // textBox38
             // 
-            this.textBox38.Location = new System.Drawing.Point(125, 114);
+            this.textBox38.Location = new System.Drawing.Point(125, 141);
             this.textBox38.Name = "textBox38";
             this.textBox38.Size = new System.Drawing.Size(100, 20);
             this.textBox38.TabIndex = 10;
@@ -1256,7 +1262,7 @@ namespace StoreProject
             // 
             // textBox39
             // 
-            this.textBox39.Location = new System.Drawing.Point(125, 27);
+            this.textBox39.Location = new System.Drawing.Point(125, 167);
             this.textBox39.Name = "textBox39";
             this.textBox39.Size = new System.Drawing.Size(100, 20);
             this.textBox39.TabIndex = 19;
@@ -1272,6 +1278,7 @@ namespace StoreProject
             this.AddCustomer_Button.Text = "Add";
             this.AddCustomer_Button.UseVisualStyleBackColor = false;
             this.AddCustomer_Button.UseWaitCursor = true;
+            this.AddCustomer_Button.Click += new System.EventHandler(this.AddCustomer_Button_Click);
             // 
             // label41
             // 
@@ -1309,6 +1316,7 @@ namespace StoreProject
             this.EditCustomer_Toggle.TabIndex = 1;
             this.EditCustomer_Toggle.Text = "Edit Customer";
             this.EditCustomer_Toggle.UseVisualStyleBackColor = true;
+            this.EditCustomer_Toggle.Click += new System.EventHandler(this.EditCustomer_Toggle_Click);
             // 
             // AddCustomer_Toggle
             // 
@@ -1318,6 +1326,7 @@ namespace StoreProject
             this.AddCustomer_Toggle.TabIndex = 0;
             this.AddCustomer_Toggle.Text = "Add Customer";
             this.AddCustomer_Toggle.UseVisualStyleBackColor = true;
+            this.AddCustomer_Toggle.Click += new System.EventHandler(this.AddCustomer_Toggle_Click);
             // 
             // CustomersList
             // 
@@ -1326,6 +1335,7 @@ namespace StoreProject
             this.CustomersList.Name = "CustomersList";
             this.CustomersList.Size = new System.Drawing.Size(121, 21);
             this.CustomersList.TabIndex = 7;
+            this.CustomersList.SelectedIndexChanged += new System.EventHandler(this.CustomersList_SelectedIndexChanged);
             // 
             // label44
             // 
