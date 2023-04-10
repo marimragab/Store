@@ -58,6 +58,8 @@ namespace StoreProject
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBox40 = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
             this.UpdateItem_Button = new System.Windows.Forms.Button();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -80,6 +82,8 @@ namespace StoreProject
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
@@ -112,8 +116,6 @@ namespace StoreProject
             this.SuppliersList = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.textBox27 = new System.Windows.Forms.TextBox();
@@ -149,8 +151,27 @@ namespace StoreProject
             this.AddCustomer_Toggle = new System.Windows.Forms.Button();
             this.CustomersList = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
-            this.textBox40 = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.InStockList = new System.Windows.Forms.ListBox();
+            this.stockInContainer = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.AddToStock_Btn = new System.Windows.Forms.Button();
+            this.expirationDate = new System.Windows.Forms.DateTimePicker();
+            this.productionDate = new System.Windows.Forms.DateTimePicker();
+            this.ToStockDate = new System.Windows.Forms.DateTimePicker();
+            this.quatity = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.SupplierIdMenu = new System.Windows.Forms.ComboBox();
+            this.ItemIdMenu = new System.Windows.Forms.ComboBox();
+            this.StoreIdMenu = new System.Windows.Forms.ComboBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -168,6 +189,8 @@ namespace StoreProject
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.stockInContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -176,6 +199,8 @@ namespace StoreProject
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(41, 22);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -472,6 +497,22 @@ namespace StoreProject
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Edit Item";
             // 
+            // textBox40
+            // 
+            this.textBox40.Location = new System.Drawing.Point(112, 27);
+            this.textBox40.Name = "textBox40";
+            this.textBox40.Size = new System.Drawing.Size(100, 20);
+            this.textBox40.TabIndex = 22;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(44, 30);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(42, 13);
+            this.label45.TabIndex = 21;
+            this.label45.Text = "Item Id:";
+            // 
             // UpdateItem_Button
             // 
             this.UpdateItem_Button.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -699,6 +740,22 @@ namespace StoreProject
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Edit Item";
+            // 
+            // textBox26
+            // 
+            this.textBox26.Location = new System.Drawing.Point(128, 20);
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(100, 20);
+            this.textBox26.TabIndex = 35;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(29, 27);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(60, 13);
+            this.label30.TabIndex = 34;
+            this.label30.Text = "Supplier Id:";
             // 
             // label17
             // 
@@ -994,22 +1051,6 @@ namespace StoreProject
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Customers";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(128, 20);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(100, 20);
-            this.textBox26.TabIndex = 35;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(29, 27);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(60, 13);
-            this.label30.TabIndex = 34;
-            this.label30.Text = "Supplier Id:";
             // 
             // groupBox10
             // 
@@ -1346,21 +1387,209 @@ namespace StoreProject
             this.label44.TabIndex = 6;
             this.label44.Text = "All Existed Customers..";
             // 
-            // textBox40
+            // tabPage5
             // 
-            this.textBox40.Location = new System.Drawing.Point(112, 27);
-            this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(100, 20);
-            this.textBox40.TabIndex = 22;
+            this.tabPage5.Controls.Add(this.InStockList);
+            this.tabPage5.Controls.Add(this.stockInContainer);
+            this.tabPage5.Controls.Add(this.button1);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(739, 380);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "StockIn";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // label45
+            // InStockList
             // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(44, 30);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(42, 13);
-            this.label45.TabIndex = 21;
-            this.label45.Text = "Item Id:";
+            this.InStockList.FormattingEnabled = true;
+            this.InStockList.Location = new System.Drawing.Point(520, 57);
+            this.InStockList.Name = "InStockList";
+            this.InStockList.Size = new System.Drawing.Size(199, 303);
+            this.InStockList.TabIndex = 2;
+            // 
+            // stockInContainer
+            // 
+            this.stockInContainer.Controls.Add(this.button3);
+            this.stockInContainer.Controls.Add(this.AddToStock_Btn);
+            this.stockInContainer.Controls.Add(this.expirationDate);
+            this.stockInContainer.Controls.Add(this.productionDate);
+            this.stockInContainer.Controls.Add(this.ToStockDate);
+            this.stockInContainer.Controls.Add(this.quatity);
+            this.stockInContainer.Controls.Add(this.label55);
+            this.stockInContainer.Controls.Add(this.label54);
+            this.stockInContainer.Controls.Add(this.label53);
+            this.stockInContainer.Controls.Add(this.label52);
+            this.stockInContainer.Controls.Add(this.SupplierIdMenu);
+            this.stockInContainer.Controls.Add(this.ItemIdMenu);
+            this.stockInContainer.Controls.Add(this.StoreIdMenu);
+            this.stockInContainer.Controls.Add(this.label48);
+            this.stockInContainer.Controls.Add(this.label47);
+            this.stockInContainer.Controls.Add(this.label46);
+            this.stockInContainer.Location = new System.Drawing.Point(17, 47);
+            this.stockInContainer.Name = "stockInContainer";
+            this.stockInContainer.Padding = new System.Windows.Forms.Padding(5);
+            this.stockInContainer.Size = new System.Drawing.Size(497, 313);
+            this.stockInContainer.TabIndex = 1;
+            this.stockInContainer.TabStop = false;
+            this.stockInContainer.Text = "Stock IN";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Plum;
+            this.button3.Location = new System.Drawing.Point(188, 262);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(116, 39);
+            this.button3.TabIndex = 21;
+            this.button3.Text = "Update Stock In";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // AddToStock_Btn
+            // 
+            this.AddToStock_Btn.BackColor = System.Drawing.Color.Tan;
+            this.AddToStock_Btn.Location = new System.Drawing.Point(26, 262);
+            this.AddToStock_Btn.Margin = new System.Windows.Forms.Padding(5);
+            this.AddToStock_Btn.Name = "AddToStock_Btn";
+            this.AddToStock_Btn.Size = new System.Drawing.Size(109, 39);
+            this.AddToStock_Btn.TabIndex = 20;
+            this.AddToStock_Btn.Text = "Add To Stock";
+            this.AddToStock_Btn.UseVisualStyleBackColor = false;
+            this.AddToStock_Btn.Click += new System.EventHandler(this.AddToStock_Btn_Click);
+            // 
+            // expirationDate
+            // 
+            this.expirationDate.Location = new System.Drawing.Point(128, 218);
+            this.expirationDate.Name = "expirationDate";
+            this.expirationDate.Size = new System.Drawing.Size(200, 20);
+            this.expirationDate.TabIndex = 19;
+            // 
+            // productionDate
+            // 
+            this.productionDate.Location = new System.Drawing.Point(128, 185);
+            this.productionDate.Name = "productionDate";
+            this.productionDate.Size = new System.Drawing.Size(200, 20);
+            this.productionDate.TabIndex = 18;
+            // 
+            // ToStockDate
+            // 
+            this.ToStockDate.Location = new System.Drawing.Point(128, 153);
+            this.ToStockDate.Name = "ToStockDate";
+            this.ToStockDate.Size = new System.Drawing.Size(200, 20);
+            this.ToStockDate.TabIndex = 17;
+            // 
+            // quatity
+            // 
+            this.quatity.Location = new System.Drawing.Point(128, 123);
+            this.quatity.Name = "quatity";
+            this.quatity.Size = new System.Drawing.Size(100, 20);
+            this.quatity.TabIndex = 16;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(26, 226);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(85, 13);
+            this.label55.TabIndex = 15;
+            this.label55.Text = "Expiration Date: ";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(26, 194);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(87, 13);
+            this.label54.TabIndex = 14;
+            this.label54.Text = "Production Date:";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(26, 163);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(36, 13);
+            this.label53.TabIndex = 13;
+            this.label53.Text = "Date: ";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(26, 133);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(49, 13);
+            this.label52.TabIndex = 12;
+            this.label52.Text = "Quantity:";
+            // 
+            // SupplierIdMenu
+            // 
+            this.SupplierIdMenu.FormattingEnabled = true;
+            this.SupplierIdMenu.Location = new System.Drawing.Point(128, 94);
+            this.SupplierIdMenu.Name = "SupplierIdMenu";
+            this.SupplierIdMenu.Size = new System.Drawing.Size(121, 21);
+            this.SupplierIdMenu.TabIndex = 5;
+            // 
+            // ItemIdMenu
+            // 
+            this.ItemIdMenu.FormattingEnabled = true;
+            this.ItemIdMenu.Location = new System.Drawing.Point(128, 63);
+            this.ItemIdMenu.Name = "ItemIdMenu";
+            this.ItemIdMenu.Size = new System.Drawing.Size(121, 21);
+            this.ItemIdMenu.TabIndex = 4;
+            // 
+            // StoreIdMenu
+            // 
+            this.StoreIdMenu.FormattingEnabled = true;
+            this.StoreIdMenu.Location = new System.Drawing.Point(128, 33);
+            this.StoreIdMenu.Name = "StoreIdMenu";
+            this.StoreIdMenu.Size = new System.Drawing.Size(121, 21);
+            this.StoreIdMenu.TabIndex = 3;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(26, 92);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(51, 13);
+            this.label48.TabIndex = 2;
+            this.label48.Text = "Supplier :";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(26, 63);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(36, 13);
+            this.label47.TabIndex = 1;
+            this.label47.Text = "Item : ";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(23, 34);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(41, 13);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "Store : ";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(17, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Add To Stock";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(739, 380);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "StockOut";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1401,6 +1630,9 @@ namespace StoreProject
             this.groupBox11.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.stockInContainer.ResumeLayout(false);
+            this.stockInContainer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1529,6 +1761,27 @@ namespace StoreProject
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.TextBox textBox40;
         private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.GroupBox stockInContainer;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button AddToStock_Btn;
+        private System.Windows.Forms.DateTimePicker expirationDate;
+        private System.Windows.Forms.DateTimePicker productionDate;
+        private System.Windows.Forms.DateTimePicker ToStockDate;
+        private System.Windows.Forms.TextBox quatity;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ComboBox SupplierIdMenu;
+        private System.Windows.Forms.ComboBox ItemIdMenu;
+        private System.Windows.Forms.ComboBox StoreIdMenu;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.ListBox InStockList;
     }
 }
 

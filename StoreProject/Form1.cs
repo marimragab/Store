@@ -25,6 +25,7 @@ namespace StoreProject
             groupBox9.Visible = false;
             groupBox11.Visible = false;
             groupBox12.Visible = false;
+            stockInContainer.Visible = false;
         }
 
 
@@ -34,6 +35,7 @@ namespace StoreProject
             DisplayItems();
             DisplaySuppliers();
             DisplayCustomers();
+            DisplayStockIn();
         }
 
         #region General Functions
@@ -74,6 +76,36 @@ namespace StoreProject
             foreach (Customer customer in customers)
             {
                 CustomersList.Items.Add(customer.customer_id + " - " + customer.customer_name);
+            }
+        }
+
+        private void DisplayStockIn()
+        {
+            InStockList.Items.Clear();
+            var stocks_in = storedb.StockIns;
+            foreach (StockIn stock in stocks_in)
+            {
+                InStockList.Items.Add(stock.stockin_id + " - " + stock.stockin_date+ " - " + stock.quantity);
+            }
+            StoreIdMenu.Items.Clear();
+            var stores = storedb.Stores;
+            foreach (Store store in stores)
+            {
+                StoreIdMenu.Items.Add(store.store_id+" - "+store.store_name+" - "+store.store_address);
+            }
+
+            ItemIdMenu.Items.Clear();
+            var items = storedb.Items;
+            foreach (Item item in items)
+            {
+                ItemIdMenu.Items.Add(item.item_id + " - " + item.item_name + " - " + item.item_code);
+            }
+
+            SupplierIdMenu.Items.Clear();
+            var suppliers = storedb.Suppliers;
+            foreach (Supplier supplier in suppliers)
+            {
+                SupplierIdMenu.Items.Add(supplier.supplier_id + " - " + supplier.supplier_name + " - " + supplier.supplier_mobile);
             }
         }
         private void ToggleGroupBox(GroupBox groupBox)
@@ -533,9 +565,67 @@ namespace StoreProject
             {
                 MessageBox.Show("No Supplier found with provided id...");
             }
-        } 
+        }
+
         #endregion
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ToggleGroupBox(stockInContainer);
+        }
 
+        private void AddToStock_Btn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(StoreIdMenu.Text) || string.IsNullOrEmpty(ItemIdMenu.Text) || 
+                string.IsNullOrEmpty(SupplierIdMenu.Text))
+            {
+                MessageBox.Show("Please select store,item,supplier from dropdown menus...");
+                return;
+            }
+            try
+            {
+                using (var storedb = new StoreModel())
+                {
+                    int storeId = int.Parse(StoreIdMenu.Text.Split('-')[0].Trim());
+                    int itemId = int.Parse(ItemIdMenu.Text.Split('-')[0].Trim());
+                    int supplierId = int.Parse(SupplierIdMenu.Text.Split('-')[0].Trim());
+
+                    MessageBox.Show(storeId.ToString()+ itemId.ToString()+ supplierId.ToString());
+                    StockIn tostock = new StockIn();
+                    tostock.store_id = storeId;
+                    tostock.item_id = itemId;
+                    tostock.supplier_id = supplierId;
+                    tostock.stockin_date= new DateTime(ToStockDate.Value.Ticks);
+                    tostock.quantity = int.Parse(quatity.Text);
+                    tostock.production_date= new DateTime(productionDate.Value.Ticks);
+                    tostock.expiry_date = new DateTime(expirationDate.Value.Ticks);
+
+                    //Item item = storedb.Items.Find(itemId);
+                    //tostock.Item = item;
+                    //Store store = storedb.Stores.Find(storeId);
+                    //tostock.Store = store;
+                    //Supplier supplier = storedb.Suppliers.Find(supplierId);
+                    //tostock.Supplier = supplier;
+
+                    storedb.StockIns.Add(tostock);
+                    storedb.SaveChanges();
+                    ItemStore itemStore = new ItemStore();
+                    itemStore.item_id = itemId;
+                    itemStore.store_id = storeId;
+
+                    storedb.ItemStores.Add(itemStore);
+                    storedb.SaveChanges();
+                    MessageBox.Show("Import to stock has been completed successfully....");
+
+                    DisplayStockIn();
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("An error occured" + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message + "\n\n" + ex.InnerException?.Message);
+            }
+
+        }
     }
 }
