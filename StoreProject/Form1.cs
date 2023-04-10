@@ -26,6 +26,7 @@ namespace StoreProject
             groupBox11.Visible = false;
             groupBox12.Visible = false;
             stockInContainer.Visible = false;
+            groupBox14.Visible = false;
         }
 
 
@@ -36,16 +37,20 @@ namespace StoreProject
             ReloadSuppliers();
             ReloadCustomers();
             ReloadStockIn();
+            ReloadStockOut();
+            ReloadTransferItems();
         }
 
         #region General Functions
         private void ReloadStores()
         {
             AllStoresIds.Items.Clear();
+            StoresIds.Items.Clear();
             var stores = storedb.Stores;
             foreach (Store store in stores)
             {
                 AllStoresIds.Items.Add(store.store_id + " - " + store.store_name);
+                StoresIds.Items.Add(store.store_id + " - " + store.store_name);
             }
         }
 
@@ -106,6 +111,51 @@ namespace StoreProject
             foreach (Supplier supplier in suppliers)
             {
                 SupplierIdMenu.Items.Add(supplier.supplier_id + " - " + supplier.supplier_name + " - " + supplier.supplier_mobile);
+            }
+        }
+
+        private void ReloadStockOut()
+        {
+            StockOut.Items.Clear();
+            var stocks_outs = storedb.StockOuts;
+            foreach (StockOut stock in stocks_outs)
+            {
+                StockOut.Items.Add(stock.stockout_id + " - " + stock.store_id + " - " + stock.item_id + " - " + stock.customer_id + " - " + stock.quantity);
+            }
+            storeIdsList.Items.Clear();
+            var stores = storedb.Stores;
+            foreach (Store store in stores)
+            {
+                storeIdsList.Items.Add(store.store_id + " - " + store.store_name + " - " + store.store_address);
+            }
+
+            itemsIdsList.Items.Clear();
+            var items = storedb.Items;
+            foreach (Item item in items)
+            {
+                itemsIdsList.Items.Add(item.item_id + " - " + item.item_name + " - " + item.item_code);
+            }
+
+            customerIdsList.Items.Clear();
+            var customers = storedb.Customers;
+            foreach (Customer customer in customers)
+            {
+                customerIdsList.Items.Add(customer.customer_id+ " - " + customer.customer_name + " - " + customer.customer_mobile);
+            }
+        }
+        private void ReloadTransferItems()
+        {
+            ImportedItems.Items.Clear();
+            var stocks_in = storedb.StockIns;
+            foreach (StockIn stock in stocks_in)
+            {
+                ImportedItems.Items.Add(stock.stockin_id );
+            }
+            StoreIdMenu.Items.Clear();
+            var stores = storedb.Stores;
+            foreach (Store store in stores)
+            {
+                ToStore.Items.Add(store.store_id + " - " + store.store_name + " - " + store.store_address);
             }
         }
         private void ToggleGroupBox(GroupBox groupBox)
@@ -570,7 +620,7 @@ namespace StoreProject
         #endregion
 
 
-        #region Import Permission
+        #region Import Permission (StockIn)
         private void button1_Click_1(object sender, EventArgs e)
         {
             ToggleGroupBox(stockInContainer);
@@ -666,7 +716,6 @@ namespace StoreProject
                 toStock.Supplier = supplier;
 
                 storedb.SaveChanges();
-                ReloadCustomers();
                 MessageBox.Show("StockIn has been updated successfuly");
                 StoreIdMenu.Text = ItemIdMenu.Text = SupplierIdMenu.Text = quatity.Text = "";
             }
@@ -675,7 +724,154 @@ namespace StoreProject
                 MessageBox.Show("Invalid id...");
             }
             ReloadStockIn();
-        } 
+        }
+
+        #endregion (StockOut)
+
+
+        #region Export Permission (StockOut)
+        private void StockOut_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int stockOutId = int.Parse(StockOut.Text.Split('-')[0].Trim());
+            StockOut stockOut = storedb.StockOuts.Find(stockOutId);
+            if (stockOut != null)
+            {
+                storeIdsList.Text = stockOut.store_id.ToString();
+                itemsIdsList.Text = stockOut.item_id.ToString();
+                customerIdsList.Text = stockOut.customer_id.ToString();
+                quantityOfItem.Text = stockOut.quantity.ToString();
+                stockOutDate.Text = stockOut.stockout_date.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Id ...");
+            }
+        }
+
+        private void ExportItemTiggle_Click(object sender, EventArgs e)
+        {
+            ToggleGroupBox(groupBox14);
+        }
+
+        private void TransferFromStockBtn_Click(object sender, EventArgs e)
+        {
+            StockOut outStock = new StockOut();
+            outStock.stockout_date = new DateTime(stockOutDate.Value.Ticks);
+            outStock.quantity = int.Parse(quantityOfItem.Text);
+
+            Item item = storedb.Items.Find(int.Parse(itemsIdsList.Text.Split('-')[0].Trim()));
+            outStock.Item = item;
+            Store store = storedb.Stores.Find(int.Parse(storeIdsList.Text.Split('-')[0].Trim()));
+            outStock.Store = store;
+            Customer customer = storedb.Customers.Find(int.Parse(customerIdsList.Text.Split('-')[0].Trim()));
+            outStock.Customer = customer;
+
+            storedb.StockOuts.Add(outStock);
+            MessageBox.Show("Stockout has been completed successfully...");
+            storedb.SaveChanges();
+            stockOutDate.Text = quantityOfItem.Text = itemsIdsList.Text = storeIdsList.Text = customerIdsList.Text = "";
+            ReloadStockOut();
+        }
+
+        private void UpdateTransferItemsFromStockBtn_Click(object sender, EventArgs e)
+        {
+            int stockOutId = int.Parse(StockOut.Text.Split('-')[0].Trim());
+            StockOut outStock = storedb.StockOuts.Find(stockOutId);
+            if (outStock != null)
+            {
+                outStock.stockout_date = new DateTime(stockOutDate.Value.Ticks);
+                outStock.quantity = int.Parse(quantityOfItem.Text);
+
+
+                int storeId = int.Parse(storeIdsList.Text.Split('-')[0].Trim());
+                int itemId = int.Parse(itemsIdsList.Text.Split('-')[0].Trim());
+                int customerId = int.Parse(customerIdsList.Text.Split('-')[0].Trim());
+
+                Item item = storedb.Items.Find(itemId);
+                outStock.Item = item;
+                Store store = storedb.Stores.Find(storeId);
+                outStock.Store = store;
+                Customer customer = storedb.Customers.Find(customerId);
+                outStock.Customer = customer;
+
+                storedb.SaveChanges();
+                MessageBox.Show("StockOut has been updated successfuly");
+                storeIdsList.Text = itemsIdsList.Text = customerIdsList.Text = quantityOfItem.Text = stockOutDate.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Invalid id...");
+            }
+            ReloadStockOut();
+        }
+
+        #endregion
+
+
+        #region Transfer Item From Store To Another
+        private void ImportedItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ID = int.Parse(ImportedItems.Text);
+            StockIn stockItem = storedb.StockIns.Find(ID);
+            if (stockItem != null)
+            {
+                ItemId.Text = stockItem.item_id.ToString();
+                FromStore.Text = stockItem.store_id.ToString();
+                ItemQuantity.Text = stockItem.quantity.ToString();
+                itemToStockDate.Text = stockItem.stockin_date.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Invalid ID");
+            }
+        }
+
+        private void TransferItemBtn_Click(object sender, EventArgs e)
+        {
+            int ID = int.Parse(ImportedItems.Text);
+            StockIn stockItem = storedb.StockIns.Find(ID);
+            if (stockItem != null)
+            {
+                int quantity = (int)stockItem.quantity - int.Parse(ItemQuantity.Text);
+                if (quantity > 0)
+                {
+                    stockItem.quantity = quantity;
+
+                    StockOut outOfStock = new StockOut();
+                    outOfStock.stockout_date = new DateTime(itemToStockDate.Value.Ticks);
+                    outOfStock.quantity = int.Parse(ItemQuantity.Text);
+                    outOfStock.Item = stockItem.Item;
+
+                    Store store = storedb.Stores.Find(int.Parse(FromStore.Text.Split('-')[0].Trim()));
+                    outOfStock.Store = stockItem.Store;
+                    Customer customer = new Customer() { customer_name = "Amer Ahmed" };
+                    outOfStock.Customer = customer;
+
+                    storedb.StockOuts.Add(outOfStock);
+                    storedb.SaveChanges();
+                    ReloadStockIn();
+                    MessageBox.Show("Transfere has been Completed successfuly");
+                    ReloadStockOut();
+                }
+                else
+                {
+                    MessageBox.Show($"Please enter valid quantity..");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("invalid id");
+            }
+            ReloadStockOut();
+
+        }
+        #endregion
+
+
+        #region Store Report
+
+
         #endregion
 
 

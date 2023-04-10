@@ -172,6 +172,43 @@ namespace StoreProject
             this.label46 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.TransferItemsToggle = new System.Windows.Forms.Button();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.ItemQuantity = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.ItemId = new System.Windows.Forms.ComboBox();
+            this.FromStore = new System.Windows.Forms.ComboBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.ToStore = new System.Windows.Forms.ComboBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.ImportedItems = new System.Windows.Forms.ListBox();
+            this.itemToStockDate = new System.Windows.Forms.DateTimePicker();
+            this.label60 = new System.Windows.Forms.Label();
+            this.TransferItemBtn = new System.Windows.Forms.Button();
+            this.StockOut = new System.Windows.Forms.ListBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.UpdateTransferItemsFromStockBtn = new System.Windows.Forms.Button();
+            this.TransferFromStockBtn = new System.Windows.Forms.Button();
+            this.stockOutDate = new System.Windows.Forms.DateTimePicker();
+            this.quantityOfItem = new System.Windows.Forms.TextBox();
+            this.stockOutItemDate = new System.Windows.Forms.Label();
+            this.quantity = new System.Windows.Forms.Label();
+            this.customerIdsList = new System.Windows.Forms.ComboBox();
+            this.itemsIdsList = new System.Windows.Forms.ComboBox();
+            this.storeIdsList = new System.Windows.Forms.ComboBox();
+            this.customerId = new System.Windows.Forms.Label();
+            this.stokedOutItem = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.ExportItemTiggle = new System.Windows.Forms.Button();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.label50 = new System.Windows.Forms.Label();
+            this.StoresIds = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -191,6 +228,12 @@ namespace StoreProject
             this.groupBox12.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.stockInContainer.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -201,6 +244,9 @@ namespace StoreProject
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Location = new System.Drawing.Point(41, 22);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1585,6 +1631,9 @@ namespace StoreProject
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.StockOut);
+            this.tabPage6.Controls.Add(this.groupBox14);
+            this.tabPage6.Controls.Add(this.ExportItemTiggle);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -1592,6 +1641,367 @@ namespace StoreProject
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "StockOut";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.ImportedItems);
+            this.tabPage7.Controls.Add(this.groupBox13);
+            this.tabPage7.Controls.Add(this.TransferItemsToggle);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(739, 380);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Transfer Items";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // TransferItemsToggle
+            // 
+            this.TransferItemsToggle.Location = new System.Drawing.Point(17, 21);
+            this.TransferItemsToggle.Name = "TransferItemsToggle";
+            this.TransferItemsToggle.Size = new System.Drawing.Size(100, 24);
+            this.TransferItemsToggle.TabIndex = 0;
+            this.TransferItemsToggle.Text = "Transfer Items";
+            this.TransferItemsToggle.UseVisualStyleBackColor = true;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.BackColor = System.Drawing.Color.Snow;
+            this.groupBox13.Controls.Add(this.TransferItemBtn);
+            this.groupBox13.Controls.Add(this.label60);
+            this.groupBox13.Controls.Add(this.itemToStockDate);
+            this.groupBox13.Controls.Add(this.label59);
+            this.groupBox13.Controls.Add(this.label58);
+            this.groupBox13.Controls.Add(this.ToStore);
+            this.groupBox13.Controls.Add(this.label57);
+            this.groupBox13.Controls.Add(this.ItemQuantity);
+            this.groupBox13.Controls.Add(this.label49);
+            this.groupBox13.Controls.Add(this.ItemId);
+            this.groupBox13.Controls.Add(this.FromStore);
+            this.groupBox13.Controls.Add(this.label51);
+            this.groupBox13.Controls.Add(this.label56);
+            this.groupBox13.Location = new System.Drawing.Point(17, 51);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(502, 288);
+            this.groupBox13.TabIndex = 1;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Transfer Items";
+            // 
+            // ItemQuantity
+            // 
+            this.ItemQuantity.Location = new System.Drawing.Point(100, 118);
+            this.ItemQuantity.Name = "ItemQuantity";
+            this.ItemQuantity.Size = new System.Drawing.Size(100, 20);
+            this.ItemQuantity.TabIndex = 24;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(38, 121);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(49, 13);
+            this.label49.TabIndex = 23;
+            this.label49.Text = "Quantity:";
+            // 
+            // ItemId
+            // 
+            this.ItemId.FormattingEnabled = true;
+            this.ItemId.Location = new System.Drawing.Point(100, 85);
+            this.ItemId.Name = "ItemId";
+            this.ItemId.Size = new System.Drawing.Size(121, 21);
+            this.ItemId.TabIndex = 21;
+            // 
+            // FromStore
+            // 
+            this.FromStore.FormattingEnabled = true;
+            this.FromStore.Location = new System.Drawing.Point(103, 45);
+            this.FromStore.Name = "FromStore";
+            this.FromStore.Size = new System.Drawing.Size(121, 21);
+            this.FromStore.TabIndex = 20;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(38, 85);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(36, 13);
+            this.label51.TabIndex = 18;
+            this.label51.Text = "Item : ";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(38, 46);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(41, 13);
+            this.label56.TabIndex = 17;
+            this.label56.Text = "Store : ";
+            // 
+            // ToStore
+            // 
+            this.ToStore.FormattingEnabled = true;
+            this.ToStore.Location = new System.Drawing.Point(340, 43);
+            this.ToStore.Name = "ToStore";
+            this.ToStore.Size = new System.Drawing.Size(121, 21);
+            this.ToStore.TabIndex = 26;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(283, 46);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(41, 13);
+            this.label57.TabIndex = 25;
+            this.label57.Text = "Store : ";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(113, 20);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(30, 13);
+            this.label58.TabIndex = 27;
+            this.label58.Text = "From";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(350, 20);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(20, 13);
+            this.label59.TabIndex = 28;
+            this.label59.Text = "To";
+            // 
+            // ImportedItems
+            // 
+            this.ImportedItems.FormattingEnabled = true;
+            this.ImportedItems.Location = new System.Drawing.Point(535, 62);
+            this.ImportedItems.Name = "ImportedItems";
+            this.ImportedItems.Size = new System.Drawing.Size(187, 277);
+            this.ImportedItems.TabIndex = 2;
+            this.ImportedItems.SelectedIndexChanged += new System.EventHandler(this.ImportedItems_SelectedIndexChanged);
+            // 
+            // itemToStockDate
+            // 
+            this.itemToStockDate.Location = new System.Drawing.Point(103, 160);
+            this.itemToStockDate.Name = "itemToStockDate";
+            this.itemToStockDate.Size = new System.Drawing.Size(200, 20);
+            this.itemToStockDate.TabIndex = 29;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(41, 160);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(33, 13);
+            this.label60.TabIndex = 30;
+            this.label60.Text = "Date:";
+            // 
+            // TransferItemBtn
+            // 
+            this.TransferItemBtn.BackColor = System.Drawing.Color.IndianRed;
+            this.TransferItemBtn.Location = new System.Drawing.Point(80, 215);
+            this.TransferItemBtn.Name = "TransferItemBtn";
+            this.TransferItemBtn.Size = new System.Drawing.Size(120, 38);
+            this.TransferItemBtn.TabIndex = 31;
+            this.TransferItemBtn.Text = "Transfer Item";
+            this.TransferItemBtn.UseVisualStyleBackColor = false;
+            this.TransferItemBtn.Click += new System.EventHandler(this.TransferItemBtn_Click);
+            // 
+            // StockOut
+            // 
+            this.StockOut.FormattingEnabled = true;
+            this.StockOut.Location = new System.Drawing.Point(521, 58);
+            this.StockOut.Name = "StockOut";
+            this.StockOut.Size = new System.Drawing.Size(199, 277);
+            this.StockOut.TabIndex = 5;
+            this.StockOut.SelectedIndexChanged += new System.EventHandler(this.StockOut_SelectedIndexChanged);
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.UpdateTransferItemsFromStockBtn);
+            this.groupBox14.Controls.Add(this.TransferFromStockBtn);
+            this.groupBox14.Controls.Add(this.stockOutDate);
+            this.groupBox14.Controls.Add(this.quantityOfItem);
+            this.groupBox14.Controls.Add(this.stockOutItemDate);
+            this.groupBox14.Controls.Add(this.quantity);
+            this.groupBox14.Controls.Add(this.customerIdsList);
+            this.groupBox14.Controls.Add(this.itemsIdsList);
+            this.groupBox14.Controls.Add(this.storeIdsList);
+            this.groupBox14.Controls.Add(this.customerId);
+            this.groupBox14.Controls.Add(this.stokedOutItem);
+            this.groupBox14.Controls.Add(this.label66);
+            this.groupBox14.Location = new System.Drawing.Point(18, 48);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox14.Size = new System.Drawing.Size(497, 287);
+            this.groupBox14.TabIndex = 4;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Stock Out";
+            // 
+            // UpdateTransferItemsFromStockBtn
+            // 
+            this.UpdateTransferItemsFromStockBtn.BackColor = System.Drawing.Color.Plum;
+            this.UpdateTransferItemsFromStockBtn.Location = new System.Drawing.Point(176, 205);
+            this.UpdateTransferItemsFromStockBtn.Name = "UpdateTransferItemsFromStockBtn";
+            this.UpdateTransferItemsFromStockBtn.Size = new System.Drawing.Size(116, 39);
+            this.UpdateTransferItemsFromStockBtn.TabIndex = 21;
+            this.UpdateTransferItemsFromStockBtn.Text = "Update Stock Out";
+            this.UpdateTransferItemsFromStockBtn.UseVisualStyleBackColor = false;
+            this.UpdateTransferItemsFromStockBtn.Click += new System.EventHandler(this.UpdateTransferItemsFromStockBtn_Click);
+            // 
+            // TransferFromStockBtn
+            // 
+            this.TransferFromStockBtn.BackColor = System.Drawing.Color.Tan;
+            this.TransferFromStockBtn.Location = new System.Drawing.Point(26, 205);
+            this.TransferFromStockBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.TransferFromStockBtn.Name = "TransferFromStockBtn";
+            this.TransferFromStockBtn.Size = new System.Drawing.Size(117, 39);
+            this.TransferFromStockBtn.TabIndex = 20;
+            this.TransferFromStockBtn.Text = "Transfer From Stock";
+            this.TransferFromStockBtn.UseVisualStyleBackColor = false;
+            this.TransferFromStockBtn.Click += new System.EventHandler(this.TransferFromStockBtn_Click);
+            // 
+            // stockOutDate
+            // 
+            this.stockOutDate.Location = new System.Drawing.Point(128, 153);
+            this.stockOutDate.Name = "stockOutDate";
+            this.stockOutDate.Size = new System.Drawing.Size(200, 20);
+            this.stockOutDate.TabIndex = 17;
+            // 
+            // quantityOfItem
+            // 
+            this.quantityOfItem.Location = new System.Drawing.Point(128, 123);
+            this.quantityOfItem.Name = "quantityOfItem";
+            this.quantityOfItem.Size = new System.Drawing.Size(100, 20);
+            this.quantityOfItem.TabIndex = 16;
+            // 
+            // stockOutItemDate
+            // 
+            this.stockOutItemDate.AutoSize = true;
+            this.stockOutItemDate.Location = new System.Drawing.Point(26, 163);
+            this.stockOutItemDate.Name = "stockOutItemDate";
+            this.stockOutItemDate.Size = new System.Drawing.Size(36, 13);
+            this.stockOutItemDate.TabIndex = 13;
+            this.stockOutItemDate.Text = "Date: ";
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSize = true;
+            this.quantity.Location = new System.Drawing.Point(26, 133);
+            this.quantity.Name = "quantity";
+            this.quantity.Size = new System.Drawing.Size(49, 13);
+            this.quantity.TabIndex = 12;
+            this.quantity.Text = "Quantity:";
+            // 
+            // customerIdsList
+            // 
+            this.customerIdsList.FormattingEnabled = true;
+            this.customerIdsList.Location = new System.Drawing.Point(128, 94);
+            this.customerIdsList.Name = "customerIdsList";
+            this.customerIdsList.Size = new System.Drawing.Size(121, 21);
+            this.customerIdsList.TabIndex = 5;
+            // 
+            // itemsIdsList
+            // 
+            this.itemsIdsList.FormattingEnabled = true;
+            this.itemsIdsList.Location = new System.Drawing.Point(128, 63);
+            this.itemsIdsList.Name = "itemsIdsList";
+            this.itemsIdsList.Size = new System.Drawing.Size(121, 21);
+            this.itemsIdsList.TabIndex = 4;
+            // 
+            // storeIdsList
+            // 
+            this.storeIdsList.FormattingEnabled = true;
+            this.storeIdsList.Location = new System.Drawing.Point(128, 33);
+            this.storeIdsList.Name = "storeIdsList";
+            this.storeIdsList.Size = new System.Drawing.Size(121, 21);
+            this.storeIdsList.TabIndex = 3;
+            // 
+            // customerId
+            // 
+            this.customerId.AutoSize = true;
+            this.customerId.Location = new System.Drawing.Point(26, 92);
+            this.customerId.Name = "customerId";
+            this.customerId.Size = new System.Drawing.Size(57, 13);
+            this.customerId.TabIndex = 2;
+            this.customerId.Text = "Customer :";
+            // 
+            // stokedOutItem
+            // 
+            this.stokedOutItem.AutoSize = true;
+            this.stokedOutItem.Location = new System.Drawing.Point(26, 63);
+            this.stokedOutItem.Name = "stokedOutItem";
+            this.stokedOutItem.Size = new System.Drawing.Size(36, 13);
+            this.stokedOutItem.TabIndex = 1;
+            this.stokedOutItem.Text = "Item : ";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(23, 34);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(41, 13);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "Store : ";
+            // 
+            // ExportItemTiggle
+            // 
+            this.ExportItemTiggle.Location = new System.Drawing.Point(18, 19);
+            this.ExportItemTiggle.Name = "ExportItemTiggle";
+            this.ExportItemTiggle.Size = new System.Drawing.Size(106, 23);
+            this.ExportItemTiggle.TabIndex = 3;
+            this.ExportItemTiggle.Text = "Transfer From Stock";
+            this.ExportItemTiggle.UseVisualStyleBackColor = true;
+            this.ExportItemTiggle.Click += new System.EventHandler(this.ExportItemTiggle_Click);
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.dataGridView1);
+            this.tabPage8.Controls.Add(this.StoresIds);
+            this.tabPage8.Controls.Add(this.label50);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(739, 380);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Store Report";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(739, 380);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "Item Report";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(29, 18);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(170, 13);
+            this.label50.TabIndex = 0;
+            this.label50.Text = "Select Store to display its report ....";
+            // 
+            // StoresIds
+            // 
+            this.StoresIds.FormattingEnabled = true;
+            this.StoresIds.Location = new System.Drawing.Point(32, 49);
+            this.StoresIds.Name = "StoresIds";
+            this.StoresIds.Size = new System.Drawing.Size(121, 21);
+            this.StoresIds.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(32, 88);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(575, 211);
+            this.dataGridView1.TabIndex = 2;
             // 
             // Form1
             // 
@@ -1635,6 +2045,15 @@ namespace StoreProject
             this.tabPage5.ResumeLayout(false);
             this.stockInContainer.ResumeLayout(false);
             this.stockInContainer.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1784,6 +2203,43 @@ namespace StoreProject
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.ListBox InStockList;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.ListBox ImportedItems;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Button TransferItemBtn;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.DateTimePicker itemToStockDate;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.ComboBox ToStore;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox ItemQuantity;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.ComboBox ItemId;
+        private System.Windows.Forms.ComboBox FromStore;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Button TransferItemsToggle;
+        private System.Windows.Forms.ListBox StockOut;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.Button UpdateTransferItemsFromStockBtn;
+        private System.Windows.Forms.Button TransferFromStockBtn;
+        private System.Windows.Forms.DateTimePicker stockOutDate;
+        private System.Windows.Forms.TextBox quantityOfItem;
+        private System.Windows.Forms.Label stockOutItemDate;
+        private System.Windows.Forms.Label quantity;
+        private System.Windows.Forms.ComboBox customerIdsList;
+        private System.Windows.Forms.ComboBox itemsIdsList;
+        private System.Windows.Forms.ComboBox storeIdsList;
+        private System.Windows.Forms.Label customerId;
+        private System.Windows.Forms.Label stokedOutItem;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Button ExportItemTiggle;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox StoresIds;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.TabPage tabPage9;
     }
 }
 
