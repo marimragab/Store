@@ -172,23 +172,6 @@ namespace StoreProject
             this.label46 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.TransferItemsToggle = new System.Windows.Forms.Button();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.ItemQuantity = new System.Windows.Forms.TextBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.ItemId = new System.Windows.Forms.ComboBox();
-            this.FromStore = new System.Windows.Forms.ComboBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.ToStore = new System.Windows.Forms.ComboBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.ImportedItems = new System.Windows.Forms.ListBox();
-            this.itemToStockDate = new System.Windows.Forms.DateTimePicker();
-            this.label60 = new System.Windows.Forms.Label();
-            this.TransferItemBtn = new System.Windows.Forms.Button();
             this.StockOut = new System.Windows.Forms.ListBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.UpdateTransferItemsFromStockBtn = new System.Windows.Forms.Button();
@@ -204,11 +187,50 @@ namespace StoreProject
             this.stokedOutItem = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.ExportItemTiggle = new System.Windows.Forms.Button();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.ImportedItems = new System.Windows.Forms.ListBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.TransferItemBtn = new System.Windows.Forms.Button();
+            this.label60 = new System.Windows.Forms.Label();
+            this.itemToStockDate = new System.Windows.Forms.DateTimePicker();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.ToStore = new System.Windows.Forms.ComboBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.ItemQuantity = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.ItemId = new System.Windows.Forms.ComboBox();
+            this.FromStore = new System.Windows.Forms.ComboBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.TransferItemsToggle = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.label50 = new System.Windows.Forms.Label();
-            this.StoresIds = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.StoresIds = new System.Windows.Forms.ComboBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DisplayItemReportBtn = new System.Windows.Forms.Button();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.DispalyItemsReportByExpirationDate = new System.Windows.Forms.Button();
+            this.DisplayItemsReportByImportDate = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -229,11 +251,15 @@ namespace StoreProject
             this.tabPage5.SuspendLayout();
             this.stockInContainer.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.groupBox14.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -247,6 +273,7 @@ namespace StoreProject
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Controls.Add(this.tabPage10);
             this.tabControl1.Location = new System.Drawing.Point(41, 22);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1642,172 +1669,6 @@ namespace StoreProject
             this.tabPage6.Text = "StockOut";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.ImportedItems);
-            this.tabPage7.Controls.Add(this.groupBox13);
-            this.tabPage7.Controls.Add(this.TransferItemsToggle);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(739, 380);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Transfer Items";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // TransferItemsToggle
-            // 
-            this.TransferItemsToggle.Location = new System.Drawing.Point(17, 21);
-            this.TransferItemsToggle.Name = "TransferItemsToggle";
-            this.TransferItemsToggle.Size = new System.Drawing.Size(100, 24);
-            this.TransferItemsToggle.TabIndex = 0;
-            this.TransferItemsToggle.Text = "Transfer Items";
-            this.TransferItemsToggle.UseVisualStyleBackColor = true;
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.BackColor = System.Drawing.Color.Snow;
-            this.groupBox13.Controls.Add(this.TransferItemBtn);
-            this.groupBox13.Controls.Add(this.label60);
-            this.groupBox13.Controls.Add(this.itemToStockDate);
-            this.groupBox13.Controls.Add(this.label59);
-            this.groupBox13.Controls.Add(this.label58);
-            this.groupBox13.Controls.Add(this.ToStore);
-            this.groupBox13.Controls.Add(this.label57);
-            this.groupBox13.Controls.Add(this.ItemQuantity);
-            this.groupBox13.Controls.Add(this.label49);
-            this.groupBox13.Controls.Add(this.ItemId);
-            this.groupBox13.Controls.Add(this.FromStore);
-            this.groupBox13.Controls.Add(this.label51);
-            this.groupBox13.Controls.Add(this.label56);
-            this.groupBox13.Location = new System.Drawing.Point(17, 51);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(502, 288);
-            this.groupBox13.TabIndex = 1;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Transfer Items";
-            // 
-            // ItemQuantity
-            // 
-            this.ItemQuantity.Location = new System.Drawing.Point(100, 118);
-            this.ItemQuantity.Name = "ItemQuantity";
-            this.ItemQuantity.Size = new System.Drawing.Size(100, 20);
-            this.ItemQuantity.TabIndex = 24;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(38, 121);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(49, 13);
-            this.label49.TabIndex = 23;
-            this.label49.Text = "Quantity:";
-            // 
-            // ItemId
-            // 
-            this.ItemId.FormattingEnabled = true;
-            this.ItemId.Location = new System.Drawing.Point(100, 85);
-            this.ItemId.Name = "ItemId";
-            this.ItemId.Size = new System.Drawing.Size(121, 21);
-            this.ItemId.TabIndex = 21;
-            // 
-            // FromStore
-            // 
-            this.FromStore.FormattingEnabled = true;
-            this.FromStore.Location = new System.Drawing.Point(103, 45);
-            this.FromStore.Name = "FromStore";
-            this.FromStore.Size = new System.Drawing.Size(121, 21);
-            this.FromStore.TabIndex = 20;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(38, 85);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(36, 13);
-            this.label51.TabIndex = 18;
-            this.label51.Text = "Item : ";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(38, 46);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(41, 13);
-            this.label56.TabIndex = 17;
-            this.label56.Text = "Store : ";
-            // 
-            // ToStore
-            // 
-            this.ToStore.FormattingEnabled = true;
-            this.ToStore.Location = new System.Drawing.Point(340, 43);
-            this.ToStore.Name = "ToStore";
-            this.ToStore.Size = new System.Drawing.Size(121, 21);
-            this.ToStore.TabIndex = 26;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(283, 46);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(41, 13);
-            this.label57.TabIndex = 25;
-            this.label57.Text = "Store : ";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(113, 20);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(30, 13);
-            this.label58.TabIndex = 27;
-            this.label58.Text = "From";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(350, 20);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(20, 13);
-            this.label59.TabIndex = 28;
-            this.label59.Text = "To";
-            // 
-            // ImportedItems
-            // 
-            this.ImportedItems.FormattingEnabled = true;
-            this.ImportedItems.Location = new System.Drawing.Point(535, 62);
-            this.ImportedItems.Name = "ImportedItems";
-            this.ImportedItems.Size = new System.Drawing.Size(187, 277);
-            this.ImportedItems.TabIndex = 2;
-            this.ImportedItems.SelectedIndexChanged += new System.EventHandler(this.ImportedItems_SelectedIndexChanged);
-            // 
-            // itemToStockDate
-            // 
-            this.itemToStockDate.Location = new System.Drawing.Point(103, 160);
-            this.itemToStockDate.Name = "itemToStockDate";
-            this.itemToStockDate.Size = new System.Drawing.Size(200, 20);
-            this.itemToStockDate.TabIndex = 29;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(41, 160);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(33, 13);
-            this.label60.TabIndex = 30;
-            this.label60.Text = "Date:";
-            // 
-            // TransferItemBtn
-            // 
-            this.TransferItemBtn.BackColor = System.Drawing.Color.IndianRed;
-            this.TransferItemBtn.Location = new System.Drawing.Point(80, 215);
-            this.TransferItemBtn.Name = "TransferItemBtn";
-            this.TransferItemBtn.Size = new System.Drawing.Size(120, 38);
-            this.TransferItemBtn.TabIndex = 31;
-            this.TransferItemBtn.Text = "Transfer Item";
-            this.TransferItemBtn.UseVisualStyleBackColor = false;
-            this.TransferItemBtn.Click += new System.EventHandler(this.TransferItemBtn_Click);
-            // 
             // StockOut
             // 
             this.StockOut.FormattingEnabled = true;
@@ -1955,8 +1816,178 @@ namespace StoreProject
             this.ExportItemTiggle.UseVisualStyleBackColor = true;
             this.ExportItemTiggle.Click += new System.EventHandler(this.ExportItemTiggle_Click);
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.ImportedItems);
+            this.tabPage7.Controls.Add(this.groupBox13);
+            this.tabPage7.Controls.Add(this.TransferItemsToggle);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(739, 380);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Transfer Items";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // ImportedItems
+            // 
+            this.ImportedItems.FormattingEnabled = true;
+            this.ImportedItems.Location = new System.Drawing.Point(535, 62);
+            this.ImportedItems.Name = "ImportedItems";
+            this.ImportedItems.Size = new System.Drawing.Size(187, 277);
+            this.ImportedItems.TabIndex = 2;
+            this.ImportedItems.SelectedIndexChanged += new System.EventHandler(this.ImportedItems_SelectedIndexChanged);
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.BackColor = System.Drawing.Color.Snow;
+            this.groupBox13.Controls.Add(this.TransferItemBtn);
+            this.groupBox13.Controls.Add(this.label60);
+            this.groupBox13.Controls.Add(this.itemToStockDate);
+            this.groupBox13.Controls.Add(this.label59);
+            this.groupBox13.Controls.Add(this.label58);
+            this.groupBox13.Controls.Add(this.ToStore);
+            this.groupBox13.Controls.Add(this.label57);
+            this.groupBox13.Controls.Add(this.ItemQuantity);
+            this.groupBox13.Controls.Add(this.label49);
+            this.groupBox13.Controls.Add(this.ItemId);
+            this.groupBox13.Controls.Add(this.FromStore);
+            this.groupBox13.Controls.Add(this.label51);
+            this.groupBox13.Controls.Add(this.label56);
+            this.groupBox13.Location = new System.Drawing.Point(17, 51);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(502, 288);
+            this.groupBox13.TabIndex = 1;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Transfer Items";
+            // 
+            // TransferItemBtn
+            // 
+            this.TransferItemBtn.BackColor = System.Drawing.Color.IndianRed;
+            this.TransferItemBtn.Location = new System.Drawing.Point(80, 215);
+            this.TransferItemBtn.Name = "TransferItemBtn";
+            this.TransferItemBtn.Size = new System.Drawing.Size(120, 38);
+            this.TransferItemBtn.TabIndex = 31;
+            this.TransferItemBtn.Text = "Transfer Item";
+            this.TransferItemBtn.UseVisualStyleBackColor = false;
+            this.TransferItemBtn.Click += new System.EventHandler(this.TransferItemBtn_Click);
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(41, 160);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(33, 13);
+            this.label60.TabIndex = 30;
+            this.label60.Text = "Date:";
+            // 
+            // itemToStockDate
+            // 
+            this.itemToStockDate.Location = new System.Drawing.Point(103, 160);
+            this.itemToStockDate.Name = "itemToStockDate";
+            this.itemToStockDate.Size = new System.Drawing.Size(200, 20);
+            this.itemToStockDate.TabIndex = 29;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(350, 20);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(20, 13);
+            this.label59.TabIndex = 28;
+            this.label59.Text = "To";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(113, 20);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(30, 13);
+            this.label58.TabIndex = 27;
+            this.label58.Text = "From";
+            // 
+            // ToStore
+            // 
+            this.ToStore.FormattingEnabled = true;
+            this.ToStore.Location = new System.Drawing.Point(340, 43);
+            this.ToStore.Name = "ToStore";
+            this.ToStore.Size = new System.Drawing.Size(121, 21);
+            this.ToStore.TabIndex = 26;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(283, 46);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(41, 13);
+            this.label57.TabIndex = 25;
+            this.label57.Text = "Store : ";
+            // 
+            // ItemQuantity
+            // 
+            this.ItemQuantity.Location = new System.Drawing.Point(100, 118);
+            this.ItemQuantity.Name = "ItemQuantity";
+            this.ItemQuantity.Size = new System.Drawing.Size(100, 20);
+            this.ItemQuantity.TabIndex = 24;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(38, 121);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(49, 13);
+            this.label49.TabIndex = 23;
+            this.label49.Text = "Quantity:";
+            // 
+            // ItemId
+            // 
+            this.ItemId.FormattingEnabled = true;
+            this.ItemId.Location = new System.Drawing.Point(100, 85);
+            this.ItemId.Name = "ItemId";
+            this.ItemId.Size = new System.Drawing.Size(121, 21);
+            this.ItemId.TabIndex = 21;
+            // 
+            // FromStore
+            // 
+            this.FromStore.FormattingEnabled = true;
+            this.FromStore.Location = new System.Drawing.Point(103, 45);
+            this.FromStore.Name = "FromStore";
+            this.FromStore.Size = new System.Drawing.Size(121, 21);
+            this.FromStore.TabIndex = 20;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(38, 85);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(36, 13);
+            this.label51.TabIndex = 18;
+            this.label51.Text = "Item : ";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(38, 46);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(41, 13);
+            this.label56.TabIndex = 17;
+            this.label56.Text = "Store : ";
+            // 
+            // TransferItemsToggle
+            // 
+            this.TransferItemsToggle.Location = new System.Drawing.Point(17, 21);
+            this.TransferItemsToggle.Name = "TransferItemsToggle";
+            this.TransferItemsToggle.Size = new System.Drawing.Size(100, 24);
+            this.TransferItemsToggle.TabIndex = 0;
+            this.TransferItemsToggle.Text = "Transfer Items";
+            this.TransferItemsToggle.UseVisualStyleBackColor = true;
+            // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.dateTimePicker2);
+            this.tabPage8.Controls.Add(this.dateTimePicker1);
+            this.tabPage8.Controls.Add(this.label62);
+            this.tabPage8.Controls.Add(this.label61);
             this.tabPage8.Controls.Add(this.dataGridView1);
             this.tabPage8.Controls.Add(this.StoresIds);
             this.tabPage8.Controls.Add(this.label50);
@@ -1968,15 +1999,54 @@ namespace StoreProject
             this.tabPage8.Text = "Store Report";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // tabPage9
+            // dateTimePicker2
             // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(739, 380);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "Item Report";
-            this.tabPage9.UseVisualStyleBackColor = true;
+            this.dateTimePicker2.Location = new System.Drawing.Point(322, 49);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 6;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(322, 10);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 5;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(247, 52);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(20, 13);
+            this.label62.TabIndex = 4;
+            this.label62.Text = "To";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(247, 16);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(30, 13);
+            this.label61.TabIndex = 3;
+            this.label61.Text = "From";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(32, 88);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(676, 212);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // StoresIds
+            // 
+            this.StoresIds.FormattingEnabled = true;
+            this.StoresIds.Location = new System.Drawing.Point(32, 49);
+            this.StoresIds.Name = "StoresIds";
+            this.StoresIds.Size = new System.Drawing.Size(121, 21);
+            this.StoresIds.TabIndex = 1;
+            this.StoresIds.SelectedIndexChanged += new System.EventHandler(this.StoresIds_SelectedIndexChanged);
             // 
             // label50
             // 
@@ -1987,21 +2057,189 @@ namespace StoreProject
             this.label50.TabIndex = 0;
             this.label50.Text = "Select Store to display its report ....";
             // 
-            // StoresIds
+            // tabPage9
             // 
-            this.StoresIds.FormattingEnabled = true;
-            this.StoresIds.Location = new System.Drawing.Point(32, 49);
-            this.StoresIds.Name = "StoresIds";
-            this.StoresIds.Size = new System.Drawing.Size(121, 21);
-            this.StoresIds.TabIndex = 1;
+            this.tabPage9.Controls.Add(this.comboBox2);
+            this.tabPage9.Controls.Add(this.comboBox1);
+            this.tabPage9.Controls.Add(this.dataGridView2);
+            this.tabPage9.Controls.Add(this.DisplayItemReportBtn);
+            this.tabPage9.Controls.Add(this.dateTimePicker4);
+            this.tabPage9.Controls.Add(this.dateTimePicker3);
+            this.tabPage9.Controls.Add(this.label67);
+            this.tabPage9.Controls.Add(this.label65);
+            this.tabPage9.Controls.Add(this.label64);
+            this.tabPage9.Controls.Add(this.label63);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(739, 380);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "Item Report";
+            this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // comboBox2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 88);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(575, 211);
-            this.dataGridView1.TabIndex = 2;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(78, 59);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 11;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(78, 30);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(32, 105);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(657, 197);
+            this.dataGridView2.TabIndex = 9;
+            // 
+            // DisplayItemReportBtn
+            // 
+            this.DisplayItemReportBtn.BackColor = System.Drawing.Color.LightSalmon;
+            this.DisplayItemReportBtn.Location = new System.Drawing.Point(580, 30);
+            this.DisplayItemReportBtn.Name = "DisplayItemReportBtn";
+            this.DisplayItemReportBtn.Size = new System.Drawing.Size(109, 32);
+            this.DisplayItemReportBtn.TabIndex = 8;
+            this.DisplayItemReportBtn.Text = "Display Report";
+            this.DisplayItemReportBtn.UseVisualStyleBackColor = false;
+            this.DisplayItemReportBtn.Click += new System.EventHandler(this.DisplayItemReportBtn_Click);
+            // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Location = new System.Drawing.Point(338, 59);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker4.TabIndex = 7;
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(338, 27);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker3.TabIndex = 6;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(283, 61);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(23, 13);
+            this.label67.TabIndex = 5;
+            this.label67.Text = "To:";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(280, 30);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(33, 13);
+            this.label65.TabIndex = 4;
+            this.label65.Text = "From:";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(29, 62);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(35, 13);
+            this.label64.TabIndex = 1;
+            this.label64.Text = "Store:";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(29, 30);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(30, 13);
+            this.label63.TabIndex = 0;
+            this.label63.Text = "Item:";
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.DispalyItemsReportByExpirationDate);
+            this.tabPage10.Controls.Add(this.DisplayItemsReportByImportDate);
+            this.tabPage10.Controls.Add(this.dataGridView3);
+            this.tabPage10.Controls.Add(this.dateTimePicker6);
+            this.tabPage10.Controls.Add(this.dateTimePicker5);
+            this.tabPage10.Controls.Add(this.label69);
+            this.tabPage10.Controls.Add(this.label68);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(739, 380);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "Item Report By Date";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // DispalyItemsReportByExpirationDate
+            // 
+            this.DispalyItemsReportByExpirationDate.BackColor = System.Drawing.Color.SteelBlue;
+            this.DispalyItemsReportByExpirationDate.Location = new System.Drawing.Point(493, 67);
+            this.DispalyItemsReportByExpirationDate.Name = "DispalyItemsReportByExpirationDate";
+            this.DispalyItemsReportByExpirationDate.Size = new System.Drawing.Size(200, 43);
+            this.DispalyItemsReportByExpirationDate.TabIndex = 6;
+            this.DispalyItemsReportByExpirationDate.Text = "Dispaly Items Report By Expiration Date";
+            this.DispalyItemsReportByExpirationDate.UseVisualStyleBackColor = false;
+            this.DispalyItemsReportByExpirationDate.Click += new System.EventHandler(this.DispalyItemsReportByExpirationDate_Click);
+            // 
+            // DisplayItemsReportByImportDate
+            // 
+            this.DisplayItemsReportByImportDate.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.DisplayItemsReportByImportDate.Location = new System.Drawing.Point(88, 67);
+            this.DisplayItemsReportByImportDate.Name = "DisplayItemsReportByImportDate";
+            this.DisplayItemsReportByImportDate.Size = new System.Drawing.Size(200, 43);
+            this.DisplayItemsReportByImportDate.TabIndex = 5;
+            this.DisplayItemsReportByImportDate.Text = "Dispaly Items Report By Import Date";
+            this.DisplayItemsReportByImportDate.UseVisualStyleBackColor = false;
+            this.DisplayItemsReportByImportDate.Click += new System.EventHandler(this.DisplayItemsReportByImportDate_Click);
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(28, 126);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(684, 258);
+            this.dataGridView3.TabIndex = 4;
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.Location = new System.Drawing.Point(493, 23);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker6.TabIndex = 3;
+            // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.Location = new System.Drawing.Point(88, 23);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker5.TabIndex = 2;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(421, 29);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(41, 13);
+            this.label69.TabIndex = 1;
+            this.label69.Text = "label69";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(25, 29);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(41, 13);
+            this.label68.TabIndex = 0;
+            this.label68.Text = "label68";
             // 
             // Form1
             // 
@@ -2046,14 +2284,20 @@ namespace StoreProject
             this.stockInContainer.ResumeLayout(false);
             this.stockInContainer.PerformLayout();
             this.tabPage6.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2240,6 +2484,28 @@ namespace StoreProject
         private System.Windows.Forms.ComboBox StoresIds;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Button DisplayItemReportBtn;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.Button DispalyItemsReportByExpirationDate;
+        private System.Windows.Forms.Button DisplayItemsReportByImportDate;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label68;
     }
 }
 

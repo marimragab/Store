@@ -46,21 +46,25 @@ namespace StoreProject
         {
             AllStoresIds.Items.Clear();
             StoresIds.Items.Clear();
+            comboBox2.Items.Clear();
             var stores = storedb.Stores;
             foreach (Store store in stores)
             {
                 AllStoresIds.Items.Add(store.store_id + " - " + store.store_name);
                 StoresIds.Items.Add(store.store_id + " - " + store.store_name);
+                comboBox2.Items.Add(store.store_id + " - " + store.store_name);
             }
         }
 
         private void ReloadItems()
         {
             ItemsList.Items.Clear();
+            comboBox1.Items.Clear();
             var items = storedb.Items;
             foreach (Item item in items)
             {
                 ItemsList.Items.Add(item.item_id + " - " + item.item_code + " - " + item.item_name);
+                comboBox1.Items.Add(item.item_id + " - " + item.item_code + " - " + item.item_name);
             }
         }
 
@@ -866,14 +870,121 @@ namespace StoreProject
             ReloadStockOut();
 
         }
-        #endregion
 
+
+        #endregion
 
         #region Store Report
+        private void StoresIds_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectStoreID = int.Parse(StoresIds.Text.Split('-')[0].Trim());
+            var query = (from store in storedb.Stores
+                         where store.store_id == selectStoreID
+                         from import in store.StockIns
+                         where import.stockin_date >= dateTimePicker1.Value
+                          && import.stockin_date <= dateTimePicker2.Value
+                         select new
+                         {
+                             StoreName = store.store_name,
+                             StoreAddress=store.store_address,
+                             ProductsName = import.Item.item_name,
+                             Quantity = import.quantity,
+                             ProductionDate=import.production_date,
+                             ExpirationDate=import.expiry_date
+                         }).ToList();
+            dataGridView1.DataSource = query;
+            //StoresIds.Text = dateTimePicker1.Text = dateTimePicker2.Text = "";
+        }
+        #endregion
+
+        #region Item Report
+        private void DisplayItemReportBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBox1.Text) || string.IsNullOrEmpty(comboBox2.Text))
+            {
+                MessageBox.Show("Please select item and store to display report");
+                return;
+            }
+
+            int itemID, storeID;
+            if (!int.TryParse(comboBox1.Text.Split('-')[0].Trim(), out itemID) ||
+                !int.TryParse(comboBox2.Text.Split('-')[0].Trim(), out storeID))
+            {
+                MessageBox.Show("Invalid input");
+                return;
+            }
+
+            try
+            {
+                var query = (from item in storedb.Items
+                             where item.item_id == itemID
+                             from import in item.StockIns
+                             where import.Store.store_id == storeID
+                             && import.stockin_date >= dateTimePicker3.Value
+                             && import.stockin_date <= dateTimePicker4.Value
+                             select new
+                             {
+                                 ItemID = item.item_id,
+                                 ProductsName = import.Item.item_name,
+                                 StoreID = import.Store.store_id,
+                                 StoreAddress = import.Store.store_address,
+                                 Quantity = import.quantity,
+                                 ProductionDate = import.production_date,
+                                 ExpirationDate = import.expiry_date
+                             }).ToList();
+                dataGridView2.DataSource = query;
+                //comboBox1.Text = comboBox2.Text = dateTimePicker3.Text = dateTimePicker4.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
 
 
         #endregion
 
+        #region Items Report By Import date
+        private void DisplayItemsReportByImportDate_Click(object sender, EventArgs e)
+        {
+            var query = (from item in storedb.Items
 
+                         from import in item.StockIns
+                         where import.stockin_date == dateTimePicker5.Value
+                         select new
+                         {
+                             ItemID = item.item_id,
+                             ProductsName = import.Item.item_name,
+                             Quantity = import.quantity,
+                             StoreID = import.Store.store_id,
+                             StoreAddress = import.Store.store_address,
+                             StockInDate = import.stockin_date,
+                             ProductionDate = import.production_date,
+                             ExpirationDate = import.expiry_date
+                         }).ToList();
+            dataGridView3.DataSource = query;
+        }
+        #endregion
+
+        #region Items Report By Expiration Date
+        private void DispalyItemsReportByExpirationDate_Click(object sender, EventArgs e)
+        {
+            var query = (from item in storedb.Items
+                         from import in item.StockIns
+                         where import.expiry_date <= dateTimePicker6.Value
+                         select new
+                         {
+                             ItemID = item.item_id,
+                             ProductsName = import.Item.item_name,
+                             Quantity = import.quantity,
+                             StoreID = import.Store.store_id,
+                             StoreAddress = import.Store.store_address,
+                             StockInDate = import.stockin_date,
+                             ProductionDate = import.production_date,
+                             ExpirationDate = import.expiry_date
+                         }).ToList();
+            dataGridView3.DataSource = query;
+        } 
+        #endregion
     }
 }
