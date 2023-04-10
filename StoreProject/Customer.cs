@@ -27,6 +27,7 @@ namespace StoreProject
         [StringLength(20)]
         public string customer_fax { get; set; }
 
+        [Required]
         [StringLength(20)]
         public string customer_mobile { get; set; }
 

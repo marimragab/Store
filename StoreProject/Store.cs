@@ -11,14 +11,16 @@ namespace StoreProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Store()
         {
-            ItemStores = new HashSet<ItemStore>();
             StockIns = new HashSet<StockIn>();
             StockOuts = new HashSet<StockOut>();
+            Items = new HashSet<Item>();
         }
 
+        [Required]
         [StringLength(50)]
         public string store_name { get; set; }
 
+        [Required]
         public string store_address { get; set; }
 
         [StringLength(50)]
@@ -28,12 +30,12 @@ namespace StoreProject
         public int store_id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ItemStore> ItemStores { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StockIn> StockIns { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StockOut> StockOuts { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

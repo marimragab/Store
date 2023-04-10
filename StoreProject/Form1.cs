@@ -31,15 +31,15 @@ namespace StoreProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DisplayStores();
-            DisplayItems();
-            DisplaySuppliers();
-            DisplayCustomers();
-            DisplayStockIn();
+            ReloadStores();
+            ReloadItems();
+            ReloadSuppliers();
+            ReloadCustomers();
+            ReloadStockIn();
         }
 
         #region General Functions
-        private void DisplayStores()
+        private void ReloadStores()
         {
             AllStoresIds.Items.Clear();
             var stores = storedb.Stores;
@@ -49,7 +49,7 @@ namespace StoreProject
             }
         }
 
-        private void DisplayItems()
+        private void ReloadItems()
         {
             ItemsList.Items.Clear();
             var items = storedb.Items;
@@ -59,7 +59,7 @@ namespace StoreProject
             }
         }
 
-        private void DisplaySuppliers()
+        private void ReloadSuppliers()
         {
             SuppliersList.Items.Clear();
             var suppliers = storedb.Suppliers;
@@ -69,7 +69,7 @@ namespace StoreProject
             }
         }
 
-        private void DisplayCustomers()
+        private void ReloadCustomers()
         {
             CustomersList.Items.Clear();
             var customers = storedb.Customers;
@@ -79,13 +79,13 @@ namespace StoreProject
             }
         }
 
-        private void DisplayStockIn()
+        private void ReloadStockIn()
         {
             InStockList.Items.Clear();
             var stocks_in = storedb.StockIns;
             foreach (StockIn stock in stocks_in)
             {
-                InStockList.Items.Add(stock.stockin_id + " - " + stock.stockin_date+ " - " + stock.quantity);
+                InStockList.Items.Add(stock.stockin_id + " - "+stock.store_id+ " - " + stock.item_id+ " - "+ stock.supplier_id + " - " + stock.quantity);
             }
             StoreIdMenu.Items.Clear();
             var stores = storedb.Stores;
@@ -163,7 +163,7 @@ namespace StoreProject
                     storedb.SaveChanges();
                     MessageBox.Show("Store has been added successfully....");
                     textBox1.Text = textBox2.Text = textBox3.Text = "";
-                    DisplayStores();
+                    ReloadStores();
                 }
             }
             catch (Exception ex)
@@ -213,7 +213,7 @@ namespace StoreProject
                 storedb.SaveChanges();
                 MessageBox.Show("Store has been updated successfully...");
                 UpdateStoreInDropDown(store);
-                DisplayStores();
+                ReloadStores();
                 textBox4.Text=textBox5.Text = textBox6.Text = textBox7.Text = "";
             }
             else
@@ -272,7 +272,7 @@ namespace StoreProject
                     storedb.SaveChanges();
                     MessageBox.Show("Item has been added successfully....");
                     textBox8.Text = textBox9.Text = textBox10.Text = "";
-                    DisplayItems();
+                    ReloadItems();
                 }
             }
             catch (Exception ex)
@@ -320,7 +320,7 @@ namespace StoreProject
                 storedb.SaveChanges();
                 MessageBox.Show("Item has been updated successfully...");
                 UpdateItemInDropDown(item);
-                DisplayItems();
+                ReloadItems();
                 textBox11.Text = textBox12.Text = textBox13.Text = textBox40.Text = "";
             }
             else
@@ -387,7 +387,7 @@ namespace StoreProject
                     MessageBox.Show("Supplier has been added successfully....");
                     textBox14.Text = textBox15.Text = textBox16.Text =
                     textBox17.Text = textBox18.Text = textBox19.Text = "";
-                    DisplaySuppliers();
+                    ReloadSuppliers();
                 }
             }
             catch (Exception ex)
@@ -439,7 +439,7 @@ namespace StoreProject
                 storedb.SaveChanges();
                 MessageBox.Show("Supplier has been updated successfully...");
                 UpdateSupplierInDropDown(supplier);
-                DisplaySuppliers();
+                ReloadSuppliers();
                 textBox20.Text = textBox21.Text = textBox22.Text = textBox23.Text =
                 textBox24.Text = textBox25.Text = textBox26.Text = "";
             }
@@ -506,7 +506,7 @@ namespace StoreProject
                     MessageBox.Show("Customer has been added successfully....");
                     textBox34.Text = textBox35.Text = textBox36.Text =
                     textBox37.Text = textBox38.Text = textBox39.Text = "";
-                    DisplayCustomers();
+                    ReloadCustomers();
                 }
             }
             catch (Exception ex)
@@ -557,7 +557,7 @@ namespace StoreProject
                 storedb.SaveChanges();
                 MessageBox.Show("Customer has been updated successfully...");
                 UpdateCustomerInDropDown(customer);
-                DisplayCustomers();
+                ReloadCustomers();
                 textBox27.Text = textBox28.Text = textBox29.Text = textBox30.Text =
                 textBox31.Text = textBox32.Text = textBox33.Text = "";
             }
@@ -569,14 +569,36 @@ namespace StoreProject
 
         #endregion
 
+
+        #region Import Permission
         private void button1_Click_1(object sender, EventArgs e)
         {
             ToggleGroupBox(stockInContainer);
         }
 
+        private void InStockList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int stockInId = int.Parse(InStockList.Text.Split('-')[0].Trim());
+            StockIn stockIn = storedb.StockIns.Find(stockInId);
+            if (stockIn != null)
+            {
+                StoreIdMenu.Text = stockIn.store_id.ToString();
+                ItemIdMenu.Text = stockIn.item_id.ToString();
+                SupplierIdMenu.Text = stockIn.supplier_id.ToString();
+                quatity.Text = stockIn.quantity.ToString();
+                ToStockDate.Text = stockIn.stockin_date.ToString();
+                productionDate.Text = stockIn.production_date.ToString();
+                expirationDate.Text = stockIn.expiry_date.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Id ...");
+            }
+
+        }
         private void AddToStock_Btn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(StoreIdMenu.Text) || string.IsNullOrEmpty(ItemIdMenu.Text) || 
+            if (string.IsNullOrEmpty(StoreIdMenu.Text) || string.IsNullOrEmpty(ItemIdMenu.Text) ||
                 string.IsNullOrEmpty(SupplierIdMenu.Text))
             {
                 MessageBox.Show("Please select store,item,supplier from dropdown menus...");
@@ -590,34 +612,27 @@ namespace StoreProject
                     int itemId = int.Parse(ItemIdMenu.Text.Split('-')[0].Trim());
                     int supplierId = int.Parse(SupplierIdMenu.Text.Split('-')[0].Trim());
 
-                    MessageBox.Show(storeId.ToString()+ itemId.ToString()+ supplierId.ToString());
+                    MessageBox.Show(storeId.ToString() + itemId.ToString() + supplierId.ToString());
                     StockIn tostock = new StockIn();
-                    tostock.store_id = storeId;
-                    tostock.item_id = itemId;
-                    tostock.supplier_id = supplierId;
-                    tostock.stockin_date= new DateTime(ToStockDate.Value.Ticks);
+                    tostock.stockin_date = new DateTime(ToStockDate.Value.Ticks);
                     tostock.quantity = int.Parse(quatity.Text);
-                    tostock.production_date= new DateTime(productionDate.Value.Ticks);
+                    tostock.production_date = new DateTime(productionDate.Value.Ticks);
                     tostock.expiry_date = new DateTime(expirationDate.Value.Ticks);
 
-                    //Item item = storedb.Items.Find(itemId);
-                    //tostock.Item = item;
-                    //Store store = storedb.Stores.Find(storeId);
-                    //tostock.Store = store;
-                    //Supplier supplier = storedb.Suppliers.Find(supplierId);
-                    //tostock.Supplier = supplier;
+                    Item item = storedb.Items.Find(itemId);
+                    tostock.Item = item;
+                    Store store = storedb.Stores.Find(storeId);
+                    tostock.Store = store;
+                    Supplier supplier = storedb.Suppliers.Find(supplierId);
+                    tostock.Supplier = supplier;
 
                     storedb.StockIns.Add(tostock);
-                    storedb.SaveChanges();
-                    ItemStore itemStore = new ItemStore();
-                    itemStore.item_id = itemId;
-                    itemStore.store_id = storeId;
-
-                    storedb.ItemStores.Add(itemStore);
+                    item.Stores.Add(store);
                     storedb.SaveChanges();
                     MessageBox.Show("Import to stock has been completed successfully....");
+                    StoreIdMenu.Text = ItemIdMenu.Text = SupplierIdMenu.Text = quatity.Text = "";
 
-                    DisplayStockIn();
+                    ReloadStockIn();
                 }
             }
             catch (Exception ex)
@@ -627,5 +642,42 @@ namespace StoreProject
             }
 
         }
+
+        private void UpdateToStock_Click(object sender, EventArgs e)
+        {
+            int stockInId = int.Parse(InStockList.Text.Split('-')[0].Trim());
+            StockIn toStock = storedb.StockIns.Find(stockInId);
+            if (toStock != null)
+            {
+                toStock.stockin_date = new DateTime(ToStockDate.Value.Ticks);
+                toStock.quantity = int.Parse(quatity.Text);
+                toStock.production_date = new DateTime(productionDate.Value.Ticks);
+                toStock.expiry_date = new DateTime(expirationDate.Value.Ticks);
+
+                int storeId = int.Parse(StoreIdMenu.Text.Split('-')[0].Trim());
+                int itemId = int.Parse(ItemIdMenu.Text.Split('-')[0].Trim());
+                int supplierId = int.Parse(SupplierIdMenu.Text.Split('-')[0].Trim());
+
+                Item item = storedb.Items.Find(itemId);
+                toStock.Item = item;
+                Store store = storedb.Stores.Find(storeId);
+                toStock.Store = store;
+                Supplier supplier = storedb.Suppliers.Find(supplierId);
+                toStock.Supplier = supplier;
+
+                storedb.SaveChanges();
+                ReloadCustomers();
+                MessageBox.Show("StockIn has been updated successfuly");
+                StoreIdMenu.Text = ItemIdMenu.Text = SupplierIdMenu.Text = quatity.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Invalid id...");
+            }
+            ReloadStockIn();
+        } 
+        #endregion
+
+
     }
 }

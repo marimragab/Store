@@ -14,13 +14,10 @@ namespace StoreProject
 
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<ItemStore> ItemStores { get; set; }
-        public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<StockIn> StockIns { get; set; }
         public virtual DbSet<StockOut> StockOuts { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -49,9 +46,9 @@ namespace StoreProject
                 .IsUnicode(false);
 
             modelBuilder.Entity<Item>()
-                .HasMany(e => e.ItemStores)
-                .WithOptional(e => e.Item)
-                .WillCascadeOnDelete();
+                .HasMany(e => e.Stores)
+                .WithMany(e => e.Items)
+                .Map(m => m.ToTable("ItemStore").MapLeftKey("item_id").MapRightKey("store_id"));
 
             modelBuilder.Entity<Store>()
                 .Property(e => e.store_manager)

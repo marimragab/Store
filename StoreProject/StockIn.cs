@@ -9,19 +9,19 @@ namespace StoreProject
     [Table("StockIn")]
     public partial class StockIn
     {
-        public int? store_id { get; set; }
-
         [Key]
         public int stockin_id { get; set; }
+
+        public int? store_id { get; set; }
+
+        public int? item_id { get; set; }
+
+        public int? supplier_id { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? stockin_date { get; set; }
 
-        public int? item_id { get; set; }
-
         public int? quantity { get; set; }
-
-        public int? supplier_id { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? production_date { get; set; }

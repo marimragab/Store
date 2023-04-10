@@ -154,7 +154,7 @@ namespace StoreProject
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.InStockList = new System.Windows.Forms.ListBox();
             this.stockInContainer = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.UpdateToStock = new System.Windows.Forms.Button();
             this.AddToStock_Btn = new System.Windows.Forms.Button();
             this.expirationDate = new System.Windows.Forms.DateTimePicker();
             this.productionDate = new System.Windows.Forms.DateTimePicker();
@@ -1407,10 +1407,11 @@ namespace StoreProject
             this.InStockList.Name = "InStockList";
             this.InStockList.Size = new System.Drawing.Size(199, 303);
             this.InStockList.TabIndex = 2;
+            this.InStockList.SelectedIndexChanged += new System.EventHandler(this.InStockList_SelectedIndexChanged);
             // 
             // stockInContainer
             // 
-            this.stockInContainer.Controls.Add(this.button3);
+            this.stockInContainer.Controls.Add(this.UpdateToStock);
             this.stockInContainer.Controls.Add(this.AddToStock_Btn);
             this.stockInContainer.Controls.Add(this.expirationDate);
             this.stockInContainer.Controls.Add(this.productionDate);
@@ -1434,15 +1435,16 @@ namespace StoreProject
             this.stockInContainer.TabStop = false;
             this.stockInContainer.Text = "Stock IN";
             // 
-            // button3
+            // UpdateToStock
             // 
-            this.button3.BackColor = System.Drawing.Color.Plum;
-            this.button3.Location = new System.Drawing.Point(188, 262);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(116, 39);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Update Stock In";
-            this.button3.UseVisualStyleBackColor = false;
+            this.UpdateToStock.BackColor = System.Drawing.Color.Plum;
+            this.UpdateToStock.Location = new System.Drawing.Point(188, 262);
+            this.UpdateToStock.Name = "UpdateToStock";
+            this.UpdateToStock.Size = new System.Drawing.Size(116, 39);
+            this.UpdateToStock.TabIndex = 21;
+            this.UpdateToStock.Text = "Update Stock In";
+            this.UpdateToStock.UseVisualStyleBackColor = false;
+            this.UpdateToStock.Click += new System.EventHandler(this.UpdateToStock_Click);
             // 
             // AddToStock_Btn
             // 
@@ -1763,7 +1765,7 @@ namespace StoreProject
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.GroupBox stockInContainer;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button UpdateToStock;
         private System.Windows.Forms.Button AddToStock_Btn;
         private System.Windows.Forms.DateTimePicker expirationDate;
         private System.Windows.Forms.DateTimePicker productionDate;
